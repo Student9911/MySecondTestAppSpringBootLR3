@@ -1,4 +1,4 @@
-package ru.aurakhov.mysecondtestapspringbootlr2.exception;
+package ru.aurakhov.mysecondtestapspringbootlr3.exception;
 
 public class ValidationFailedException extends Exception{
     public ValidationFailedException(String message) {

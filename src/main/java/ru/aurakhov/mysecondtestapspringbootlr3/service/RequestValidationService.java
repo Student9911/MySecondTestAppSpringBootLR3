@@ -1,8 +1,8 @@
-package ru.aurakhov.mysecondtestapspringbootlr2.service;
+package ru.aurakhov.mysecondtestapspringbootlr3.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import ru.aurakhov.mysecondtestapspringbootlr2.exception.ValidationFailedException;
+import ru.aurakhov.mysecondtestapspringbootlr3.exception.ValidationFailedException;
 
 @Service
 public class RequestValidationService implements ValidationService {

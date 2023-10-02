@@ -1,7 +1,7 @@
-package ru.aurakhov.mysecondtestapspringbootlr2.service;
+package ru.aurakhov.mysecondtestapspringbootlr3.service;
 
 import org.springframework.stereotype.Service;
-import ru.aurakhov.mysecondtestapspringbootlr2.exception.UnsupportedCodeException;
+import ru.aurakhov.mysecondtestapspringbootlr3.exception.UnsupportedCodeException;
 
 @Service
 public class RequestUnsupportedCodeService implements UnsupportedCodeService {

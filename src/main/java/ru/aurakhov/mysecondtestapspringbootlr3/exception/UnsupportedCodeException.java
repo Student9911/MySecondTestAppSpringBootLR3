@@ -1,4 +1,4 @@
-package ru.aurakhov.mysecondtestapspringbootlr2.exception;
+package ru.aurakhov.mysecondtestapspringbootlr3.exception;
 
 public class UnsupportedCodeException extends Exception{
     // Конструктор с сообщением об ошибке
