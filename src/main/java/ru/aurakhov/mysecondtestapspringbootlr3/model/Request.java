@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Range;
 
-import javax.swing.plaf.PanelUI;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -29,7 +28,8 @@ public class Request {
     private String source;
 
     @Range(min = 1, max = 100000,
-            message = "Значение должно быть в диапазоне от 1 до 100000") //указывает, что значение поля должно находиться в заданном диапазоне (от 1 до 100000).
+            message = "Значение должно быть в диапазоне от 1 до 100000")
+    //указывает, что значение поля должно находиться в заданном диапазоне (от 1 до 100000).
     private int communicationId;
     private int templateId;
     private int productCode;
@@ -50,5 +50,7 @@ public class Request {
                 '}';
     }
 
-
 }
+
+
+

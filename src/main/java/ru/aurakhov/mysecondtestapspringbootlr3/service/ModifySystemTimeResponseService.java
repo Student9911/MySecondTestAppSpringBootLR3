@@ -8,7 +8,7 @@ import ru.aurakhov.mysecondtestapspringbootlr3.util.DateTimeUtil;
 import java.util.Date;
 
 @Service
-@Qualifier("ModifySystemTimeResponseService ")
+@Qualifier("ModifySystemTimeResponseService")
 public class ModifySystemTimeResponseService implements ModifyResponseService {
     @Override
     public Response modify(Response response) {

@@ -2,14 +2,17 @@ package ru.aurakhov.mysecondtestapspringbootlr3.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum Codes {
+public enum SystemsName {
+    ERP("Enterprise Resource Planning"),
+    CRM("Customer Relationship Management"),
+    ABC("123"),
+    WMS("Warehouse Management System");
 
-    SUCCESS("success"),
-    FAILED("failed");
 
     private final String name;
 
-    Codes(String name) {
+
+    SystemsName(String name) {
         this.name = name;
     }
 
@@ -20,6 +23,7 @@ public enum Codes {
 
     @Override
     public String toString() {
+
         return name;
     }
 }

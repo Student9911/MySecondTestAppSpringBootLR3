@@ -1,6 +1,8 @@
 package ru.aurakhov.mysecondtestapspringbootlr3.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -11,6 +13,7 @@ import ru.aurakhov.mysecondtestapspringbootlr3.exception.UnsupportedCodeExceptio
 import ru.aurakhov.mysecondtestapspringbootlr3.exception.ValidationFailedException;
 import ru.aurakhov.mysecondtestapspringbootlr3.model.*;
 import ru.aurakhov.mysecondtestapspringbootlr3.service.ModifyResponseService;
+import ru.aurakhov.mysecondtestapspringbootlr3.service.ModifySystemNameResponseService;
 import ru.aurakhov.mysecondtestapspringbootlr3.service.UnsupportedCodeService;
 import ru.aurakhov.mysecondtestapspringbootlr3.service.ValidationService;
 import ru.aurakhov.mysecondtestapspringbootlr3.util.DateTimeUtil;
@@ -18,6 +21,7 @@ import ru.aurakhov.mysecondtestapspringbootlr3.util.DateTimeUtil;
 import javax.validation.Valid;
 import java.util.Date;
 
+@Slf4j
 @RestController
 public class MyController {
 
@@ -27,7 +31,9 @@ public class MyController {
     private final ModifyResponseService modifyResponseService;
 
     @Autowired
-    public MyController(ValidationService validationService, UnsupportedCodeService unsupportedCodeService, ModifyResponseService modifyResponseService) {
+    public MyController(ValidationService validationService,
+                        UnsupportedCodeService unsupportedCodeService,
+                        @Qualifier("ModifyOperationUidResponseService ") ModifyResponseService modifyResponseService) {
         this.validationService = validationService;
 
         this.unsupportedCodeService = unsupportedCodeService;
@@ -39,10 +45,13 @@ public class MyController {
     public ResponseEntity<Response> feedback(@Valid @RequestBody Request request,
                                              BindingResult bindingResult) {
 
+        log.info("request: {}", request);
+
 
         Response response = Response.builder()
                 .uid(request.getUid())
-                .operationUid(request.getOperationUid())
+                .operationUid("")
+                .systemsName(SystemsName.valueOf(request.getSystemName()))
                 .systemTime(DateTimeUtil.getCustomFormat().format(new Date()))
                 .code(Codes.SUCCESS)
                 .errorCode(ErrorCodes.EMPTY)
